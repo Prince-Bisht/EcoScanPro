@@ -1,0 +1,11 @@
+{
+ "biodegradable":"Biodegradable waste is material microorganisms can break down, such as many food scraps and leaves.",
+ "plastic":"Check local recycling acceptance and plastic resin code. Keep accepted packaging clean and dry.",
+ "segregation":"Separate wet/organic, dry/recyclable and domestic hazardous waste according to local collection rules.",
+ "compost":"Composting turns suitable organic scraps and garden waste into soil amendment under controlled aerobic conditions.",
+ "e-waste":"Give electronics and batteries to authorized e-waste collection or take-back services; do not mix with household waste.",
+ "recycling":"Recycling recovers usable materials but reducing and reusing usually avoid waste earlier.",
+ "india":"Indian municipalities implement local solid-waste segregation and collection practices; check your city's official rules.",
+ "pollution":"Prevent littering, avoid open burning of waste, and use authorized disposal services.",
+ "ai":"AI can estimate waste quantities and assist sorting, but predictions need reliable data and validation."
+}

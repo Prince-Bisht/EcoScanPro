@@ -1,0 +1,12 @@
+{
+  "mae_kg_day": 269873.27523911156,
+  "rmse_kg_day": 394372.99721514876,
+  "r2": 0.996424957405095,
+  "train_rows": 80,
+  "test_rows": 16,
+  "test_years": [
+    2025,
+    2026
+  ],
+  "dataset": "synthetic demonstration data"
+}
