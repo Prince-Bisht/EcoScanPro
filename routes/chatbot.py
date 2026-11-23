@@ -1,9 +1,29 @@
-from flask import Blueprint,request,jsonify
+
+from flask import Blueprint, request, jsonify
 from services.chatbot_service import answer
-bp=Blueprint('chatbot',__name__)
-@bp.post('/api/chat')
+
+bp = Blueprint("chatbot", __name__)
+
+
+@bp.route("/api/chat", methods=["POST"])
 def chat():
-    body=request.get_json(silent=True) or {}; msg=body.get('message',''); history=body.get('history',[])
-    if not isinstance(msg,str) or not msg.strip() or len(msg)>2000: return jsonify(error='Message must contain 1–2000 characters'),400
-    if not isinstance(history,list): return jsonify(error='History must be a list'),400
-    return jsonify(answer(msg.strip(),history))
+    body = request.get_json(silent=True)
+
+    if not isinstance(body, dict):
+        return jsonify(error="Invalid JSON request"), 400
+
+    message = body.get("message", "")
+    history = body.get("history", [])
+
+    if not isinstance(message, str) or not message.strip():
+        return jsonify(error="Message cannot be empty"), 400
+
+    if len(message) > 2000:
+        return jsonify(error="Message is too long"), 400
+
+    if not isinstance(history, list):
+        return jsonify(error="Invalid chat history"), 400
+
+    result = answer(message.strip(), history)
+
+    return jsonify(result)
