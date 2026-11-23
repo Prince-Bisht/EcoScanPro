@@ -1,16 +1,34 @@
 """Train MobileNetV2 on the six available TrashNet categories."""
+from logging import root
 from pathlib import Path
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-CLASSES = ['Cardboard', 'Glass', 'Metal', 'Paper', 'Plastic', 'General Waste']
+CLASSES = [
+    "Cardboard",
+    "E-Waste",
+    "General Waste",
+    "Glass",
+    "Metal",
+    "Organic Waste",
+    "Paper",
+    "Plastic"
+]
 
 
 def train():
     import tensorflow as tf
 
-    root = ROOT / 'data' / 'waste_images'
-    counts = {name: len(list((root / name).glob('*.jpg'))) for name in CLASSES}
+    extensions = {".jpg", ".jpeg", ".png", ".webp"}
+    root = ROOT / "data" / "waste_images"
+
+    counts = {
+    name: sum(
+        1 for file in (root / name).rglob("*")
+        if file.is_file() and file.suffix.lower() in extensions
+    )
+    for name in CLASSES
+}
     if any(count == 0 for count in counts.values()):
         raise RuntimeError(f'Missing training images: {counts}')
 

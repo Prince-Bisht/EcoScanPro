@@ -17,6 +17,17 @@ GUIDANCE = {
     'Organic Waste': 'Compost suitable food and garden waste where permitted.',
     'Cardboard': 'Flatten and keep dry for paper/cardboard recycling.',
     'General Waste': 'Use designated residual-waste collection; separate hazardous items.',
+    'E-Waste': (
+    'Electronic waste should be taken to an '
+    'authorized e-waste collection or recycling '
+    'facility. Do not dispose of electronics '
+    'with regular household waste.'
+),
+
+'Organic Waste': (
+    'Compost suitable food scraps and garden '
+    'waste where local facilities permit.'
+),
 }
 
 
