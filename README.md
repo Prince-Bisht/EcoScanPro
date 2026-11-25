@@ -14,7 +14,7 @@ EcoScanPro is designed as an educational project demonstrating how Artificial In
 
 **Deployment Platform:** Render
 
-**Live Website:** [EcoScanPro](https://YOUR-SERVICE-NAME.onrender.com)
+**Live Website:** [EcoScanPro](https://ecoscanpros.onrender.com)
 
 > The deployment link will be updated after the website is successfully hosted on Render.
 
@@ -401,7 +401,7 @@ The Gemini model name is configurable and should be selected from models support
 ### Step 1 — Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/EcoScanPro.git
+git clone https://github.com/Prince-Bisht/EcoScanPro.git
 cd EcoScanPro
 ```
 
@@ -443,7 +443,7 @@ python app.py
 
 Open the application:
 
-http://127.0.0.1:5000
+https://ecoscanpros.onrender.com
 
 ### Application Pages
 
@@ -569,7 +569,7 @@ Production deployments should include appropriate security testing and resource 
 - OpenCV: https://opencv.org/
 - Flask: https://flask.palletsprojects.com/
 - Google Gemini API: https://ai.google.dev/
-- Render: https://render.com/
+- Render: https://ecoscanpros.onrender.com
 
 ---
 
