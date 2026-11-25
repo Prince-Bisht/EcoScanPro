@@ -1,44 +1,59 @@
 
-# 🌱 EcoScanPro — AI-Powered Smart Waste Management System
+# 🌱 EcoScanPro
+### AI-Powered Smart Waste Management System
 
-**EcoScanPro** is an AI-powered smart waste management web application developed using Python, Flask, Machine Learning, Deep Learning, and Computer Vision.
+EcoScanPro is a full-stack, AI-powered waste management web application built using **Python, Flask, Machine Learning, Deep Learning, OpenCV, and Google Gemini AI**.
 
-The project aims to improve waste management through waste generation prediction, image-based waste classification, and AI-assisted environmental education.
+The project combines waste generation forecasting, image-based waste classification, and an AI environmental assistant into one responsive web platform.
 
-> **Project Status:** Functional college demonstration project. Machine learning predictions are experimental and should not be treated as verified municipal waste-management decisions.
+EcoScanPro is designed as an educational project demonstrating how Artificial Intelligence can support smarter and more sustainable waste management.
 
-## 🚀 Live Website
+---
+
+## 🌐 Live Website
 
 **Deployment Platform:** Render
 
-**Website:** https://YOUR-SERVICE-NAME.onrender.com
+**Live Website:** [EcoScanPro](https://YOUR-SERVICE-NAME.onrender.com)
 
-Replace the above URL with the actual Render deployment link once the application is successfully deployed.
+> The deployment link will be updated after the website is successfully hosted on Render.
 
-## ✨ Key Features
+---
 
-### 1. AI Waste Generation Prediction
+## 🚀 Key Features
 
-Predicts estimated waste generation in kilograms per day using Linear Regression.
+EcoScanPro consists of three major modules.
 
-**Features:**
-- Indian city-based waste prediction
-- Population and urbanization-based inputs
-- Historical waste generation trends
-- Future waste projections
-- Interactive Chart.js graphs
-- Model evaluation using MAE, RMSE, and R²
-- Live environmental news integration
+### 📊 Module 1 — AI Waste Generation Prediction
 
-**Dataset:** Synthetic Indian waste-generation data.
+Predicts estimated waste generation using **Linear Regression**.
 
-The initial dataset is generated for demonstration purposes and is not official Indian government data.
+Features:
 
-### 2. AI Waste Image Classification
+- Indian city-based waste forecasting
+- Estimated waste generation in kilograms
+- Population-based prediction inputs
+- Historical waste trend visualization
+- Interactive graphs using Chart.js
+- Future waste generation estimates
+- Environmental news integration
+- Model performance evaluation
 
-Uses OpenCV for image preprocessing and MobileNetV2 for deep learning-based waste classification.
+**Machine Learning Algorithm:** Linear Regression
 
-**Supported Categories:**
+**Libraries:** Scikit-learn, Pandas, NumPy
+
+**Dataset:** Synthetic Indian waste-generation data used for demonstration purposes.
+
+The synthetic dataset can be replaced with verified Indian municipal waste statistics in future versions.
+
+### ♻️ Module 2 — AI Waste Image Scanner
+
+An intelligent waste classification system using **OpenCV and MobileNetV2**.
+
+Users can upload images of waste items and receive AI-generated classification results.
+
+#### Supported Waste Categories
 
 1. Cardboard
 2. E-Waste
@@ -49,60 +64,136 @@ Uses OpenCV for image preprocessing and MobileNetV2 for deep learning-based wast
 7. Paper
 8. Plastic
 
-**Features:**
-- Image upload
-- OpenCV preprocessing
-- MobileNetV2 classification
+#### Features
+
+- Image upload interface
+- OpenCV-based image preprocessing
+- MobileNetV2 deep learning classification
 - Top three predicted categories
 - Model confidence scores
-- Uncertainty detection
-- Waste disposal recommendations
-- Recycling guidance
+- Uncertain classification handling
+- Recycling recommendations
+- Waste disposal guidance
 
-The classifier uses a trained neural network rather than random or hardcoded predictions.
+The classifier uses a trained neural network rather than hardcoded predictions.
 
-### 3. Eco AI Chatbot
+### 🤖 Module 3 — Eco AI Chatbot
 
-An environmental assistant designed to answer questions about:
+Eco AI is an environmental assistant integrated with the **Google Gemini API**.
 
-- Recycling
-- Waste segregation
-- Plastic pollution
-- E-waste
-- Composting
-- Sustainable living
-- Waste management in India
+It is designed to provide contextual answers about environmental sustainability and waste management.
 
-The chatbot supports configurable LLM API integration.
+#### Features
 
-If an LLM API is unavailable, the application uses a clearly labeled environmental knowledge-base fallback.
+- Google Gemini API integration
+- Natural-language conversations
+- Hindi, English and Hinglish support
+- Conversation history support
+- Waste segregation guidance
+- Plastic recycling information
+- E-waste disposal guidance
+- Composting and organic waste education
+- Environmental awareness
+- Automatic retry for temporary API server errors
+- Offline knowledge-base fallback
+
+The chatbot uses the Google GenAI Python SDK.
+
+When Gemini is unavailable, EcoScanPro provides a clearly labeled offline knowledge-base response.
+
+**Note:** The Gemini integration has been configured, but successful live responses depend on API model availability, quota and service status.
+
+---
 
 ## 🛠️ Technology Stack
 
-| Component | Technology |
+| Component | Technologies |
 |---|---|
 | Frontend | HTML5, CSS3, JavaScript |
 | Backend | Python, Flask |
-| Waste Prediction | Scikit-learn Linear Regression |
-| Computer Vision | OpenCV |
+| Machine Learning | Scikit-learn |
 | Deep Learning | TensorFlow, Keras |
-| Image Classifier | MobileNetV2 |
+| Image Classification | MobileNetV2 |
+| Computer Vision | OpenCV |
+| AI Chatbot | Google Gemini API |
+| AI SDK | Google GenAI |
 | Data Processing | Pandas, NumPy |
-| Graphs | Chart.js |
+| Data Visualization | Chart.js |
 | Model Storage | Joblib, Keras |
-| Environmental News | RSS / News API |
+| Environmental News | RSS Feeds |
 | Deployment | Render |
 | Version Control | Git, GitHub |
 
-## 📊 Waste Classification Datasets
+---
 
-EcoScanPro V2 uses three publicly available waste-image dataset sources.
+## 📂 Project Structure
 
-### Dataset 1 — TrashNet
+```text
+EcoScanPro/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .env.example
+├── .gitignore
+│
+├── data/
+│   ├── waste_images/
+│   ├── held_out_validation/
+│   ├── held_out_test/
+│   └── waste_guidelines.json
+│
+├── ml/
+│   ├── generate_dataset.py
+│   ├── train_regression.py
+│   ├── train_classifier.py
+│   ├── evaluate_models.py
+│   └── predict.py
+│
+├── models/
+│   ├── waste_classifier.keras
+│   ├── waste_classifier_classes.json
+│   └── waste_regression.joblib
+│
+├── routes/
+│   ├── prediction.py
+│   ├── classification.py
+│   ├── chatbot.py
+│   └── news.py
+│
+├── services/
+│   ├── image_processing.py
+│   ├── chatbot_service.py
+│   └── news_service.py
+│
+├── templates/
+│   ├── index.html
+│   ├── prediction.html
+│   ├── scanner.html
+│   ├── chatbot.html
+│   └── about.html
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+└── tests/
+```
+
+Some datasets and trained model artifacts may be excluded from GitHub because of their size.
+
+---
+
+## 📊 Dataset Sources
+
+EcoScanPro uses publicly available image datasets for waste classification.
+
+### 1. TrashNet Dataset
 
 **Source:** https://github.com/garythung/trashnet
 
-TrashNet provides images of six waste categories.
+TrashNet provides labeled images of common waste materials.
 
 | Category | Images |
 |---|---:|
@@ -114,41 +205,41 @@ TrashNet provides images of six waste categories.
 | General Waste | 137 |
 | **Total** | **2,527** |
 
-The original `trash` category is mapped to `General Waste`.
+The original TrashNet `trash` category is mapped to `General Waste`.
 
-### Dataset 2 — AlphaTrash
+### 2. AlphaTrash Dataset
 
 **Source:** https://github.com/Patipol-BKK/alphatrash-dataset
 
 Used for Organic Waste classification.
 
-**Images collected:** 819
+**Total Organic Waste Images:** 819
 
-Original dataset splits:
+Original dataset partitions:
 
 - Training: 574 images
 - Validation: 123 images
 - Testing: 122 images
 
-### Dataset 3 — TrashBox
+### 3. TrashBox Dataset
 
 **Source:** https://github.com/nikhilvenkatkumsetty/TrashBox
 
 Used for E-Waste classification.
 
-The dataset includes electronic waste images such as:
+**Total E-Waste Images:** 2,405
+
+The dataset includes images of:
 
 - Smartphones
 - Laptops
 - Electrical cables
-- Small appliances
 - Electronic chips
+- Small electronic appliances
 
-**Images collected:** 2,405
+### Combined Dataset Summary
 
-### Combined Dataset
-
-| Category | Original Images |
+| Category | Images |
 |---|---:|
 | Cardboard | 403 |
 | E-Waste | 2,405 |
@@ -160,262 +251,239 @@ The dataset includes electronic waste images such as:
 | Plastic | 482 |
 | **Total** | **5,751** |
 
-Dataset images were organized into eight waste categories for model training.
+### Dataset Preparation
 
-Original dataset licenses and attribution requirements should be checked before redistribution or commercial deployment.
+The preparation pipeline included:
 
-## 🧹 Dataset Preparation
+1. Downloading public datasets.
+2. Organizing images into eight waste categories.
+3. Separating training, validation and test images.
+4. Checking exact duplicates using SHA-256.
+5. Removing three cross-split training duplicates.
+6. Converting training images to standard RGB JPEG format.
+7. Preparing images for MobileNetV2 classification.
 
-The dataset preparation process included:
+#### Dataset Partition Summary
 
-1. Downloading public waste-image datasets.
-2. Organizing images into eight categories.
-3. Separating training, validation, and test images.
-4. Detecting exact duplicate images using SHA-256 hashing.
-5. Removing three training images duplicated across splits.
-6. Normalizing training images to RGB JPEG format.
-7. Preparing images for MobileNetV2.
-
-### Dataset Split
-
-After duplicate cleanup:
-
-| Dataset Partition | Images |
+| Partition | Images |
 |---|---:|
-| Training pool | 4,766 |
-| Reserved Organic validation | 123 |
-| Held-out test | 859 |
-| **Total** | **5,748** |
+| Training Pool | 4,766 |
+| Reserved Organic Validation | 123 |
+| Held-Out Test | 859 |
+| **Total After Cleanup** | **5,748** |
 
-The training script additionally creates its own validation subset from the training pool.
+The training script also creates an internal validation split from its training pool.
 
-The 859 held-out test images are reserved for independent evaluation.
+The reserved held-out test images have not yet been reported as an independently evaluated final test result.
 
-**Note:** Exact duplicate removal does not guarantee the absence of visually similar images or mislabeled samples.
+Dataset licenses and attribution requirements should be reviewed before redistribution or commercial use.
 
-## 🧠 Machine Learning Models
+---
+
+## 🧠 Machine Learning Architecture
 
 ### Linear Regression
 
-Used for waste generation prediction.
+Linear Regression is used to estimate waste generation from numerical and demographic input features.
 
-Linear Regression models relationships between waste generation and numerical or encoded demographic features.
-
-The regression model is stored as:
+The trained regression model is stored in:
 
 `models/waste_regression.joblib`
 
 ### MobileNetV2
 
-Used for image-based waste classification.
+MobileNetV2 is used for image-based waste classification.
 
-MobileNetV2 is a lightweight convolutional neural network architecture suitable for transfer learning.
+The current trained model uses transfer learning with pretrained ImageNet weights.
 
-**Current training configuration:**
+#### Model Configuration
 
-- Input resolution: 224 × 224
-- Batch size: 16
-- Training epochs: 8
-- Optimizer: Adam
-- Loss: Sparse Categorical Crossentropy
-- Pretrained ImageNet weights
-- Frozen MobileNetV2 backbone
-- Trainable classification head
-
-The current recorded training run uses feature extraction. Additional fine-tuning and class balancing remain possible improvements.
-
-## 📈 Model Training Results
-
-The eight-category MobileNetV2 model completed training successfully.
-
-| Metric | Recorded Result |
-|---|---:|
-| Final Training Accuracy | 98.95% |
-| Final Validation Accuracy | 90.87% |
-| Completed Epochs | 8 |
+| Parameter | Value |
+|---|---|
+| Architecture | MobileNetV2 |
+| Input Size | 224 × 224 |
 | Output Classes | 8 |
-| Independent Test Accuracy | Pending evaluation |
+| Batch Size | 16 |
+| Epochs | 8 |
+| Optimizer | Adam |
+| Loss | Sparse Categorical Crossentropy |
+| Transfer Learning | ImageNet pretrained backbone |
+| Classification Head | Trainable |
+| Backbone | Frozen in recorded training run |
 
-These are training-run metrics, not verified real-world classification accuracy.
+### Training Results
 
-Softmax confidence scores should not be interpreted as guaranteed probabilities of correctness.
+| Metric | Result |
+|---|---:|
+| Training Accuracy | 98.95% |
+| Validation Accuracy | 90.87% |
+| Training Epochs | 8 |
+| Waste Categories | 8 |
+| Independent Test Accuracy | Not yet evaluated |
 
-### Known Classification Limitations
+These metrics are from the recorded training run and do not represent guaranteed accuracy on real-world images.
 
-The classifier can misclassify unfamiliar objects.
+### Known Limitations
 
-For example, a transparent phone cover was classified as E-Waste with high model confidence, although the item is likely a plastic-based accessory.
+The model may incorrectly classify unfamiliar objects or waste items that are poorly represented in the training datasets.
 
-Possible contributing factors include:
+For example, a transparent phone case was classified as E-Waste with high confidence.
 
-- Class imbalance
-- Limited training diversity
-- Dataset-specific backgrounds
-- Missing object variations
-- Neural network overconfidence
+Future improvements include:
 
-Future model improvements should be evaluated using independent test images and real-world examples.
+- Class balancing
+- Additional real-world training images
+- Fine-tuning MobileNetV2 layers
+- Better unknown-object handling
+- Independent per-category evaluation
+- Confusion matrix analysis
 
-## 📁 Project Structure
+---
+
+## 🤖 Google Gemini AI Integration
+
+EcoScanPro uses the Google GenAI Python SDK to communicate with Gemini.
+
+### Chatbot Architecture
 
 ```text
-EcoScanPro/
-|
-|-- app.py
-|-- requirements.txt
-|-- README.md
-|-- .env.example
-|-- .gitignore
-|
-|-- data/
-|   |-- indian_waste_data.csv
-|   |-- waste_guidelines.json
-|   |-- waste_images/
-|   |-- held_out_validation/
-|   |-- held_out_test/
-|
-|-- ml/
-|   |-- generate_dataset.py
-|   |-- train_regression.py
-|   |-- train_classifier.py
-|   |-- evaluate_models.py
-|   |-- predict.py
-|
-|-- models/
-|   |-- waste_regression.joblib
-|   |-- waste_classifier.keras
-|   |-- waste_classifier_classes.json
-|
-|-- routes/
-|   |-- prediction.py
-|   |-- classification.py
-|   |-- chatbot.py
-|   |-- news.py
-|
-|-- services/
-|   |-- image_processing.py
-|   |-- chatbot_service.py
-|   |-- news_service.py
-|
-|-- templates/
-|   |-- index.html
-|   |-- prediction.html
-|   |-- scanner.html
-|   |-- chatbot.html
-|   |-- about.html
-|
-|-- static/
-|   |-- css/
-|   |-- js/
-|   |-- images/
-|
-|-- tests/
+User Message
+     |
+     v
+Flask Chat API
+     |
+     v
+chatbot_service.py
+     |
+     v
+Google Gemini API
+     |
+     +---- Successful Response
+     |          |
+     |          v
+     |      Eco AI Reply
+     |
+     +---- API Failure
+                |
+                v
+       Knowledge-Base Fallback
 ```
 
-Training datasets and generated model files may not be included in the GitHub repository. They must be made available separately when required.
+### Chatbot Capabilities
 
-## 💻 Installation
+- Context-aware environmental conversations
+- Previous-message history
+- Multilingual responses
+- Environmental knowledge-base grounding
+- Limited retries on temporary server failures
+- Offline fallback when the AI provider is unavailable
 
-### 1. Clone the repository
+### API Configuration
+
+Create a `.env` file in the project root.
+
+```env
+SECRET_KEY=YOUR_RANDOM_SECRET
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+GEMINI_MODEL=gemini-3.5-flash-lite
+NEWS_CACHE_SECONDS=1800
+MAX_CONTENT_LENGTH_MB=8
+```
+
+The Gemini model name is configurable and should be selected from models supported by the API project.
+
+**Security:** Never upload `.env` or API credentials to GitHub.
+
+---
+
+## 💻 Installation and Setup
+
+### Step 1 — Clone Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/EcoScanPro.git
 cd EcoScanPro
 ```
 
-### 2. Create a virtual environment
+### Step 2 — Create Virtual Environment
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-On Windows:
+For Windows:
 
 ```bash
 .venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+### Step 3 — Install Dependencies
 
 ```bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-For local classifier training, install a compatible TensorFlow version if it is not already included.
+Ensure the requirements include the Google GenAI SDK:
 
-### 4. Configure environment variables
+```text
+google-genai
+```
 
-Create a `.env` file using `.env.example` as a reference.
+### Step 4 — Configure Environment Variables
 
-Configure the chatbot and news API credentials if those services are required.
+Create a `.env` file and configure the Gemini API key and other required settings.
 
-Never commit `.env` or secret API keys to GitHub.
-
-### 5. Run the application
+### Step 5 — Run Flask Application
 
 ```bash
 python app.py
 ```
 
-Open:
+Open the application:
 
 http://127.0.0.1:5000
 
-## 🏋️ Training the Models
+### Application Pages
 
-### Train Waste Regression
+| Page | URL |
+|---|---|
+| Home | `/` |
+| Waste Prediction | `/prediction` |
+| AI Waste Scanner | `/scanner` |
+| Eco AI Chatbot | `/chatbot` |
 
-```bash
-python ml/train_regression.py
-```
+---
 
-### Train Waste Classifier
-
-Ensure the eight labeled image-category folders are available under:
-
-`data/waste_images/`
-
-Then run:
-
-```bash
-python ml/train_classifier.py
-```
-
-The training script saves:
-
-- `models/waste_classifier.keras`
-- `models/waste_classifier_classes.json`
-
-The model and class mapping must be deployed together.
-
-## 🔌 Backend API Endpoints
+## 🔌 API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
-| POST | `/api/classify-waste` | Classify an uploaded waste image |
-| POST | `/api/chat` | Send a message to Eco AI |
-| GET | `/api/health` | Check application health |
+| POST | `/api/classify-waste` | Waste image classification |
+| POST | `/api/chat` | Eco AI chatbot |
+| GET | `/api/health` | Application health |
 
-Additional prediction and news endpoints are implemented through their respective Flask route modules.
+Additional routes support waste prediction and environmental news.
 
-## ☁️ Deployment on Render
+---
 
-EcoScanPro can be deployed using a Render Python Web Service.
+## ☁️ Render Deployment
+
+EcoScanPro is designed to be deployable as a Python web service on Render.
 
 ### Deployment Steps
 
-1. Upload the application source code to GitHub.
+1. Push the source code to GitHub.
 2. Open https://dashboard.render.com/
-3. Create a new Web Service.
-4. Connect the GitHub repository.
+3. Select **New Web Service**.
+4. Connect the EcoScanPro GitHub repository.
 5. Select Python as the runtime.
 6. Configure the build and start commands.
-7. Add required environment variables.
-8. Deploy the application.
+7. Add environment variables.
+8. Deploy the web service.
 
-### Recommended Render Configuration
+### Render Configuration
 
 | Setting | Value |
 |---|---|
@@ -425,65 +493,95 @@ EcoScanPro can be deployed using a Render Python Web Service.
 | Build Command | `pip install -r requirements.txt` |
 | Start Command | `gunicorn app:app --bind 0.0.0.0:$PORT` |
 
-Ensure `gunicorn` is included in `requirements.txt`.
+Ensure `gunicorn` is installed through `requirements.txt`.
 
-### Important Deployment Notes
+### Render Environment Variables
 
-- Render runs on Linux, so dependencies must be compatible with its runtime.
-- Use `opencv-python-headless` for server-side image processing.
-- The trained Keras model must be available on the server.
-- Large model files may require Git LFS or external artifact storage.
-- TensorFlow may exceed the memory limits of some hosting plans.
-- Never upload API keys or local virtual environments.
-- Dataset repositories are not required at runtime once the trained model is available.
+Configure the following through the Render dashboard:
 
-## 🔐 Security
+```text
+SECRET_KEY
+GEMINI_API_KEY
+GEMINI_MODEL
+NEWS_CACHE_SECONDS
+MAX_CONTENT_LENGTH_MB
+```
 
-The application includes or is designed to support:
+### Deployment Considerations
 
-- Image upload size restrictions
-- File extension and content validation
-- Environment-based API credentials
-- Backend request validation
-- Error handling
-- Secure model inference
-- Safe frontend rendering
-
-Additional security testing is recommended before production deployment.
-
-## 🔮 Future Enhancements
-
-- MobileNetV2 fine-tuning
-- Better class balancing
-- Expanded real-world training datasets
-- Dedicated mouse and electronic accessory examples
-- Improved unknown-object detection
-- Independent confusion-matrix evaluation
-- City-wise AQI integration
-- Official Indian municipal waste datasets
-- Location-specific recycling guidance
-- Optimized cloud model inference
-- Model monitoring and retraining
-
-## 📚 References and Credits
-
-1. TrashNet — https://github.com/garythung/trashnet
-2. AlphaTrash — https://github.com/Patipol-BKK/alphatrash-dataset
-3. TrashBox — https://github.com/nikhilvenkatkumsetty/TrashBox
-4. TensorFlow — https://www.tensorflow.org/
-5. Scikit-learn — https://scikit-learn.org/
-6. OpenCV — https://opencv.org/
-7. Flask — https://flask.palletsprojects.com/
-8. Render — https://render.com/
-
-## 📌 Project Disclaimer
-
-EcoScanPro is an educational and experimental AI-based waste management system.
-
-Waste generation estimates currently use synthetic demonstration data. Waste image classifications are model predictions and may be incorrect.
-
-The system should not replace official municipal recycling instructions or professional waste-management guidance.
+- Render uses a Linux environment.
+- Use Linux-compatible Python dependencies.
+- Prefer `opencv-python-headless` for server deployment.
+- Ensure trained model files are available at runtime.
+- Large TensorFlow models may require additional hosting resources.
+- Never commit private API keys.
+- Configure the Gemini API key through Render environment settings.
+- Test all three modules after deployment.
 
 ---
 
-**EcoScanPro — Smarter Waste Management, Powered by Artificial Intelligence.**
+## 🔒 Security and Privacy
+
+EcoScanPro uses or is designed to support:
+
+- Environment-based API credentials
+- Flask request validation
+- File upload restrictions
+- Backend image processing
+- API error handling
+- Safe AI fallback behavior
+- Separation of frontend and backend API credentials
+
+Production deployments should include appropriate security testing and resource limits.
+
+---
+
+## 🔮 Future Improvements
+
+- MobileNetV2 fine-tuning
+- Improved classification accuracy
+- Additional Indian waste datasets
+- Official municipal waste statistics
+- Better AI confidence calibration
+- Dedicated e-waste accessory detection
+- Real-time environmental monitoring
+- Location-specific recycling recommendations
+- Cloud model optimization
+- Independent test-set evaluation
+- Improved chatbot reliability
+- More interactive sustainability dashboards
+
+---
+
+## 📚 References
+
+### Datasets
+
+- TrashNet: https://github.com/garythung/trashnet
+- AlphaTrash: https://github.com/Patipol-BKK/alphatrash-dataset
+- TrashBox: https://github.com/nikhilvenkatkumsetty/TrashBox
+
+### Technologies
+
+- TensorFlow: https://www.tensorflow.org/
+- Keras: https://keras.io/
+- Scikit-learn: https://scikit-learn.org/
+- OpenCV: https://opencv.org/
+- Flask: https://flask.palletsprojects.com/
+- Google Gemini API: https://ai.google.dev/
+- Render: https://render.com/
+
+---
+
+## ⚠️ Disclaimer
+
+EcoScanPro is an educational AI project.
+
+Waste prediction currently uses synthetic demonstration data. Image classification results are experimental and may be incorrect.
+
+AI-generated responses should not replace official municipal waste-management regulations or professional environmental guidance.
+
+---
+
+### 🌱 EcoScanPro
+**Predict Waste. Classify Smarter. Build a Sustainable Future.**
